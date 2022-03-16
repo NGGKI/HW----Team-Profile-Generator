@@ -1,3 +1,4 @@
+// import dependencies
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
@@ -14,9 +15,10 @@ const render = require("./lib/htmlRenderer");
 
 // Write code to use inquirer to gather information about the development team members,
 
-let theTeam = [];
+let theTeam = []; // create an empty array
 
 function startApp() {
+  // ask user which app to start with
   function addMember() {
     inquirer.prompt([
       {
@@ -31,6 +33,7 @@ function startApp() {
         ],
       },
     ])
+      // create conditional if user choose different answer
       .then((answer) => {
         if (answer.memberChoice === "Engineer") {
           return addEngineer();
@@ -45,7 +48,7 @@ function startApp() {
   }
 
 
-
+  //add manager
   function addManager() {
     inquirer
       .prompt([
@@ -94,6 +97,7 @@ function startApp() {
           }
         },
       ])
+      // push answer to class Manager
       .then((answers) => {
         const newManager = new Manager(
           answers.managerName,
@@ -229,7 +233,7 @@ function startApp() {
       });
 
   }
-
+  // render all user answer into output html and created new file
   function printHtml() {
     let myArrayteam = render(theTeam)
     fse.outputFile('newhtml/team.html', myArrayteam)
@@ -237,7 +241,7 @@ function startApp() {
         console.log("You successfully create team file!");
       })
   }
-
+  // create question if user want to add more member
   function contiQuestion() {
     inquirer.prompt([{
       type: "list",
@@ -257,30 +261,6 @@ function startApp() {
         }
       })
   }
-  addMember()
+  addMember() // start function adding member
 }
-startApp();
-
-// and to create objects for each team member (using the correct classes as blueprints!)
-
-// After the user has input all employees desired, call the `render` function (required
-// above) and pass in an array containing all employee objects; the `render` function will
-// generate and return a block of HTML including templated divs for each employee!
-
-// After you have your html, you're now ready to create an HTML file using the HTML
-// returned from the `render` function. Now write it to a file named `team.html` in the
-// `output` folder. You can use the variable `outputPath` above target this location.
-// Hint: you may need to check if the `output` folder exists and create it if it
-// does not.
-
-// HINT: each employee type (manager, engineer, or intern) has slightly different
-// information; write your code to ask different questions via inquirer depending on
-// employee type.
-
-// HINT: make sure to build out your classes first! Remember that your Manager, Engineer,
-// and Intern classes should all extend from a class named Employee; see the directions
-// for further information. Be sure to test out each class and verify it generates an
-// object with the correct structure and methods. This structure will be crucial in order for the provided `render` function to work!
-
-
-
+startApp(); // start app

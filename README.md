@@ -30,11 +30,11 @@ To install necessary dependencies, run the following command:
 
 ## Usage
 
-🎗You can run the start at any time with `node app.js creating new html
+🎗You can run the start at any time with `node run start creating new html
 
 ---
 
-🎗You can run the delete output file at any time with `node reset.js
+🎗You can run the delete output file at any time with `node run reset
 
 ## Contributing
 
