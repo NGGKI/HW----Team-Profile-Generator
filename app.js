@@ -25,8 +25,8 @@ function startApp() {
         message: "Which type of team member would you like to add?",
         choices: [
           "Manager",
-          "Intern",
           "Engineer",
+          "Intern",
           "I don't want to add any team members, I am not sure why i am here!",
         ],
       },
@@ -44,24 +44,7 @@ function startApp() {
       });
   }
 
-  function contiQuestion() {
-    inquirer.prompt([{
-      type: "list",
-      name: "memberChoice",
-      message: "Would you like to add more member?",
-      choices: [
-        'No',
-        'Yes',
-      ]
-    }])
-      .then((answer) => {
-        if (answer.memberChoice === 'No') {
-          printHtml();
-        } else {
-          return addMember();
-        }
-      })
-  }
+
 
   function addManager() {
     inquirer
@@ -249,9 +232,29 @@ function startApp() {
 
   function printHtml() {
     let myArrayteam = render(theTeam)
-    fse.outputFile('output/team.html', myArrayteam)
+    fse.outputFile('newhtml/team.html', myArrayteam)
       .then(() => {
         console.log("You successfully create team file!");
+      })
+  }
+
+  function contiQuestion() {
+    inquirer.prompt([{
+      type: "list",
+      name: "memberChoice",
+      message: "Would you like to add more member?",
+      choices: [
+        'No',
+        'Yes',
+      ]
+    }])
+      .then((answer) => {
+        if (answer.memberChoice === 'No') {
+          return printHtml();
+        } else {
+          console.log('-------');
+          return addMember();
+        }
       })
   }
   addMember()

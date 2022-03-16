@@ -26,15 +26,19 @@ The application will prompt the user for information about the team manager and 
 
 To install necessary dependencies, run the following command:
 
-- Use the [ npm i ] to download Inquirer, jest, fs-extra
+- Use the command [ npm i ] to download all required dependencies
 
 ## Usage
 
-🎗You can run the start at any time with `node app.js
+🎗You can run the start at any time with `node app.js creating new html
 
 ---
 
+🎗You can run the delete output file at any time with `node reset.js
+
 ## Contributing
+
+Kien Hoang supported by UCI BootCamp
 
 ## Tests
 
