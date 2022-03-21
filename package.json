@@ -8,9 +8,9 @@
     "test": "test"
   },
   "scripts": {
-    "start": "node app.js", 
-    "reset": "node reset.js"
-    
+    "start": "node app.js",
+    "reset": "node reset.js",
+    "test": "jest --verbose test/*"
   },
   "repository": {
     "type": "git",
